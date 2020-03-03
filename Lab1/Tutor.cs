@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab1
+namespace ValidationSystem
 {
     public class Tutor
     {
@@ -13,6 +13,10 @@ namespace Lab1
         public Tutor(string name)
         {
             Name = name;
+        }
+        public void ChangeAnswer(Validator validator, string answer)
+        {
+            validator.ChangeAnswer(answer);
         }
     }
 }
