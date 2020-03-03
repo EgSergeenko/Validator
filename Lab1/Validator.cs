@@ -44,6 +44,17 @@ namespace ValidationSystem
                 _results.Add(false);
             }
         }
+        public void DeleteStudent(Student student)
+        {
+            for (int i = 0; i < _students.Count(); i++)
+            {
+                if (_students[i].Id == student.Id)
+                {
+                    _students.RemoveAt(i);
+                    _results.RemoveAt(i);
+                }
+            }
+        }
         /** Проверка задания студента
          * \param[in] student студент для проверки
          */
@@ -84,7 +95,7 @@ namespace ValidationSystem
             bool success = false;
             for (int i = 0; i < _students.Count(); i++)
             {
-                if (_students[i].Id == student.Id)
+                if (_students[i] == student)
                 {
                     existence = true;
                     success = _students[i].Task.Text == RightAnswer;
@@ -92,6 +103,13 @@ namespace ValidationSystem
                 }
             }
             return Tuple.Create(existence, success);
+        }
+        public void ShowInfo()
+        {
+            for (int i = 0; i < _students.Count(); i++)
+            {
+                Console.WriteLine("Name: " + this._students[i].Name + " Result: " + Check(_students[i]).Item2);
+            }
         }
     }
 }
