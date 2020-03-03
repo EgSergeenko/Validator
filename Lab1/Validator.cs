@@ -95,7 +95,7 @@ namespace ValidationSystem
             bool success = false;
             for (int i = 0; i < _students.Count(); i++)
             {
-                if (_students[i].Id == student.Id)
+                if (_students[i] == student)
                 {
                     existence = true;
                     success = _students[i].Task.Text == RightAnswer;
@@ -103,6 +103,13 @@ namespace ValidationSystem
                 }
             }
             return Tuple.Create(existence, success);
+        }
+        public void ShowInfo()
+        {
+            for (int i = 0; i < _students.Count(); i++)
+            {
+                Console.WriteLine(this._students[i].Name + " " + Check(_students[i]).Item2);
+            }
         }
     }
 }
