@@ -1,0 +1,3 @@
+[submodule "Submodules/Doxygen"]
+	path = Submodules/Doxygen
+	url = https://github.com/EgSergeenko/Doxygen
